@@ -2,9 +2,11 @@
 
 ## 📱 profile
 
-> Projeto desenvolvido em Flutter utilizando o package hive para o armazenamento das informações localmente.
-> Projeto possui CI/CD utilizando o Github Actions.
-> A build do .apk está no Actions.
+* Projeto desenvolvido em Flutter utilizando o package hive para o armazenamento das informações localmente.
+* Arquitetura MVVM.
+* Projeto possui CI/CD utilizando o Github Actions.
+* A build do .apk está no Actions.
+* Possui 3 testes de funcionalidade, a função de SignIn, SignUp e error no SignUp.
 
 ## 💻 Pré-requisitos
 
