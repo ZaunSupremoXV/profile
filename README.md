@@ -1,5 +1,7 @@
 <div id="inicio"></div>
 
+<img src="https://i.imgur.com/XLwAgig.png" height="400em"> <img src="https://i.imgur.com/TGro5Ve.png" height="400em"> <img src="https://i.imgur.com/zVIRd0q.png" height="400em"> 
+
 ## 📱 profile
 
 * Projeto desenvolvido em Flutter utilizando o package hive para o armazenamento das informações localmente.
