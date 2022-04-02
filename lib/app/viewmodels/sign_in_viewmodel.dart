@@ -9,14 +9,10 @@ class SignInViewModel {
 
   signIn(String email, String password) async {
     try {
+      //! chama o repository e executa a funcao get
       UserModel? data = await repository.get(email);
-      if (data!.password == password) {
-        print('Senha igual');
-        return data;
-      } else {
-        print('Senha errada');
-      }
-      ;
+      //! verifica se a senha recebida e a mesma da informacao armazenada
+      if (data!.password == password) return data;
     } catch (e) {
       return e;
     }

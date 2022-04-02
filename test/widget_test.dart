@@ -7,15 +7,9 @@ import 'package:profile/app/viewmodels/sign_in_viewmodel.dart';
 import 'package:profile/app/viewmodels/sign_up_viewmodel.dart';
 
 void main() {
-  group("ApiAuthViewModel", () {
+  group("ViewModel", () {
     WidgetsFlutterBinding.ensureInitialized();
     HiveUserRepository repository = HiveUserRepository();
-
-    UserModel userMock = UserModel(
-      name: 'Armando Pinto',
-      email: 'test@test.com',
-      password: '1234',
-    );
 
     test('SignUp', () async {
       await Hive.initFlutter();

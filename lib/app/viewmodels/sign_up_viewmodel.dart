@@ -8,6 +8,7 @@ class SignUpViewModel {
 
   signUp(String name, String email, String password) async {
     try {
+      //! cria um userModel com as informacoes recebidas e repassa para a funcao post do repository
       UserModel userModel =
           UserModel(name: name, email: email, password: password);
       repository.post(userModel);

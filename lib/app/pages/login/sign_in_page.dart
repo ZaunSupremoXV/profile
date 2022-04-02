@@ -28,64 +28,75 @@ class _SignInState extends State<SignIn> {
       body: RxBuilder(builder: (context) {
         return Form(
           key: controller.formKey,
-          child: ListView(
-            children: [
-              const Text("Email"),
-              TextFormField(
-                keyboardType: TextInputType.emailAddress,
-                controller: controller.email,
-                validator: controller.emailValidator,
-              ),
-              const Text("Password"),
-              TextFormField(
-                obscureText: true,
-                controller: controller.password,
-                validator: controller.passwordValidator,
-              ),
-              const SizedBox(height: 30),
-              SizedBox(
-                height: 50,
-                child: ElevatedButton(
-                  onPressed: () {
-                    controller.loading ? null : controller.signIn();
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: Theme.of(context).colorScheme.primary,
-                  ),
-                  child: Center(
-                    child: controller.loading
-                        ? const SizedBox(
-                            height: 30,
-                            width: 30,
-                            child: CircularProgressIndicator(
-                                valueColor: AlwaysStoppedAnimation<Color>(
-                                    Colors.white)),
-                          )
-                        : const Text("Sign In"),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+            child: ListView(
+              children: [
+                Container(
+                  alignment: Alignment.bottomCenter,
+                  child: Image.asset(
+                    "assets/images/login.png",
+                    height: 240.0,
+                    width: 240.0,
                   ),
                 ),
-              ),
-              const SizedBox(height: 50),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text("Don't have an account? "),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SignUpPage()),
-                      );
+                const Text("Email"),
+                TextFormField(
+                  keyboardType: TextInputType.emailAddress,
+                  controller: controller.email,
+                  validator: controller.emailValidator,
+                ),
+                const Text("Password"),
+                TextFormField(
+                  obscureText: true,
+                  controller: controller.password,
+                  validator: controller.passwordValidator,
+                ),
+                const SizedBox(height: 30),
+                SizedBox(
+                  height: 50,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      controller.loading ? null : controller.signIn();
                     },
-                    child: const Text(
-                      "Create an account",
-                      style: TextStyle(color: Colors.purple),
+                    style: ElevatedButton.styleFrom(
+                      primary: Theme.of(context).colorScheme.primary,
+                    ),
+                    child: Center(
+                      child: controller.loading
+                          ? const SizedBox(
+                              height: 30,
+                              width: 30,
+                              child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                      Colors.white)),
+                            )
+                          : const Text("Sign In"),
                     ),
                   ),
-                ],
-              )
-            ],
+                ),
+                const SizedBox(height: 50),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text("Don't have an account? "),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignUpPage()),
+                        );
+                      },
+                      child: const Text(
+                        "Create an account",
+                        style: TextStyle(color: Colors.purple),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         );
       }),

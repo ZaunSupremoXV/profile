@@ -1,16 +1,58 @@
-# profile
+<div id="inicio"></div>
 
-A new Flutter project.
+## 📱 profile
 
-## Getting Started
+> Projeto desenvolvido em Flutter utilizando o package hive para o armazenamento das informações localmente.
+> Projeto possui CI/CD utilizando o Github Actions.
+> A build do .apk está no Actions.
 
-This project is a starting point for a Flutter application.
+## 💻 Pré-requisitos
 
-A few resources to get you started if this is your first Flutter project:
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
+* Você instalou a versão mais recente do `Flutter`
+* Você tem uma máquina `Windows` ou `Linux` ou `MacOS`.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## 🚀 Instalando profile
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Para instalar o profile, siga estas etapas:
+
+Linux e macOS:
+```
+flutter pub get
+```
+
+Windows:
+```
+flutter pub get
+```
+
+
+## ☕ Usando profile
+
+### Para executar o projeto, siga estas etapas:
+
+```
+flutter run
+```
+
+
+## 🤝 Colaborador
+
+Agradecemos à seguinte pessoa que contribuiu para este projeto:
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/erick-vasconcelos-50baa8150/" target="_blank">
+        <img src="https://avatars.githubusercontent.com/u/67069017?v=4" width="100px;" alt="Foto do Erick no GitHub"/><br>
+        <sub>
+          <b>Erick Vasconcelos</b>
+        </sub><br>
+        <a href="https://www.buymeacoffee.com/erickzaunlab" target="_blank"><img src="https://raw.githubusercontent.com/appcraftstudio/buymeacoffee/master/Images/snapshot-bmc-button.png" width="100px;"></a>
+      </a>
+    </td>
+  </tr>
+</table>
+
+
+[⬆ Voltar ao topo](#inicio)<br>

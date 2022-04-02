@@ -14,7 +14,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   void initState() {
-    controller = SignUpController();
+    controller = SignUpController(context);
     super.initState();
   }
 
@@ -27,49 +27,60 @@ class _SignUpPageState extends State<SignUpPage> {
       body: RxBuilder(builder: (context) {
         return Form(
           key: controller.formkey,
-          child: ListView(
-            children: [
-              const Text("Name"),
-              TextFormField(
-                controller: controller.name,
-                validator: controller.nameValidator,
-              ),
-              const Text("Email"),
-              TextFormField(
-                keyboardType: TextInputType.emailAddress,
-                controller: controller.email,
-                validator: controller.emailValidator,
-              ),
-              const Text("Password"),
-              TextFormField(
-                controller: controller.password,
-                obscureText: true,
-                validator: controller.passwordValidator,
-              ),
-              const SizedBox(height: 40),
-              SizedBox(
-                height: 50,
-                child: ElevatedButton(
-                  onPressed: () {
-                    controller.loading ? null : controller.signUp();
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: Theme.of(context).colorScheme.primary,
-                  ),
-                  child: Center(
-                    child: controller.loading
-                        ? const SizedBox(
-                            height: 30,
-                            width: 30,
-                            child: CircularProgressIndicator(
-                                valueColor: AlwaysStoppedAnimation<Color>(
-                                    Colors.white)),
-                          )
-                        : const Text("Sign Up"),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+            child: ListView(
+              children: [
+                Container(
+                  alignment: Alignment.bottomCenter,
+                  child: Image.asset(
+                    "assets/images/signup.jpg",
+                    height: 240.0,
+                    width: 240.0,
                   ),
                 ),
-              ),
-            ],
+                const Text("Name"),
+                TextFormField(
+                  controller: controller.name,
+                  validator: controller.nameValidator,
+                ),
+                const Text("Email"),
+                TextFormField(
+                  keyboardType: TextInputType.emailAddress,
+                  controller: controller.email,
+                  validator: controller.emailValidator,
+                ),
+                const Text("Password"),
+                TextFormField(
+                  controller: controller.password,
+                  obscureText: true,
+                  validator: controller.passwordValidator,
+                ),
+                const SizedBox(height: 40),
+                SizedBox(
+                  height: 50,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      controller.loading ? null : controller.signUp();
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Theme.of(context).colorScheme.primary,
+                    ),
+                    child: Center(
+                      child: controller.loading
+                          ? const SizedBox(
+                              height: 30,
+                              width: 30,
+                              child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                      Colors.white)),
+                            )
+                          : const Text("Sign Up"),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       }),

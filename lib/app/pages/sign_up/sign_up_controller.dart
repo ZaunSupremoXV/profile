@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:profile/app/pages/login/sign_in_page.dart';
 import 'package:profile/app/repository/hive_user_repository.dart';
 
 import 'package:profile/app/viewmodels/sign_up_viewmodel.dart';
 import 'package:rx_notifier/rx_notifier.dart';
 
 class SignUpController {
+  BuildContext context;
   late SignUpViewModel viewModel;
   final RxNotifier<bool> _loading = RxNotifier<bool>(false);
   bool get loading => _loading.value;
@@ -13,15 +16,17 @@ class SignUpController {
   final _formKey = GlobalKey<FormState>();
   GlobalKey get formkey => _formKey;
 
-  SignUpController() {
+  SignUpController(this.context) {
     HiveUserRepository repository = HiveUserRepository();
     viewModel = SignUpViewModel(repository);
   }
 
+  //!instancia o controller dos inputs dos forms
   TextEditingController name = TextEditingController(text: '');
   TextEditingController email = TextEditingController(text: '');
   TextEditingController password = TextEditingController(text: '');
 
+  //! validadores dos inputs
   String? nameValidator(String? value) {
     if (value!.isEmpty) {
       return "Name cannot be empty.";
@@ -46,11 +51,16 @@ class SignUpController {
     return null;
   }
 
+  //! chama a funcao signUp do viewModel
   signUp() async {
     if (_formKey.currentState!.validate()) {
       loading = true;
       try {
         await viewModel.signUp(name.text, email.text, password.text);
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const SignIn()),
+        );
       } catch (e) {
         return e;
       } finally {

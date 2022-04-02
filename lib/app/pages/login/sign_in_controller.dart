@@ -22,9 +22,11 @@ class SignInController {
     viewModel = SignInViewModel(repository);
   }
 
+  //! instancia o controller dos inputs dos forms
   TextEditingController email = TextEditingController(text: '');
   TextEditingController password = TextEditingController(text: '');
 
+  //! validadores dos inputs
   String? emailValidator(String? value) {
     if (value!.isEmpty) {
       return "Email cannot be empty.";
@@ -42,12 +44,12 @@ class SignInController {
     return null;
   }
 
+  //! chama a funcao signIn do viewModel
   signIn() async {
     if (_formKey.currentState!.validate()) {
       loading = true;
       try {
         UserModel data = await viewModel.signIn(email.text, password.text);
-        print(data);
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => HomePage(userModel: data)),
